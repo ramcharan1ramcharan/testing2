@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/licence`,
+    require('./licenceCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/licence/:id`,
+    require('./licenceUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/licence/import`,
+    require('./licenceImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/licence`,
+    require('./licenceDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/licence/autocomplete`,
+    require('./licenceAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/licence`,
+    require('./licenceList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/licence/:id`,
+    require('./licenceFind').default,
+  );
+};

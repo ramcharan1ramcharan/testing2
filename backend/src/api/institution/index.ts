@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/institution`,
+    require('./institutionCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/institution/:id`,
+    require('./institutionUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/institution/import`,
+    require('./institutionImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/institution`,
+    require('./institutionDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/institution/autocomplete`,
+    require('./institutionAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/institution`,
+    require('./institutionList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/institution/:id`,
+    require('./institutionFind').default,
+  );
+};

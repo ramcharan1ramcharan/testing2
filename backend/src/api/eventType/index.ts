@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/event-type`,
+    require('./eventTypeCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/event-type/:id`,
+    require('./eventTypeUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/event-type/import`,
+    require('./eventTypeImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/event-type`,
+    require('./eventTypeDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/event-type/autocomplete`,
+    require('./eventTypeAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/event-type`,
+    require('./eventTypeList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/event-type/:id`,
+    require('./eventTypeFind').default,
+  );
+};
